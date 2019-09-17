@@ -1,0 +1,29 @@
+.main {
+    color: red;
+    border: 7px solid black;
+    border-radius: 20px;
+    background-color: grey;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+h1 {
+    color: lightgreen;
+   
+}
+
+h3 {
+    color: blue; 
+   
+}
+
+p {
+    color: red;
+    
+}
+.sub {
+    border: solid black 1px;
+    border-radius: 20px;
+    background-color: lightgrey;
+    text-align: center;
+}

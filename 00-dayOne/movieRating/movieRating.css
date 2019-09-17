@@ -1,0 +1,16 @@
+
+
+table,
+th,
+td {
+    background-color: lightskyblue;
+    border: 1px solid black;
+}
+
+table {
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+}
