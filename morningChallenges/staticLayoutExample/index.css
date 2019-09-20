@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.parallax {
+    background-image: url("https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?cs=srgb&dl=cold-daylight-glacier-1366919.jpg&fm=jpg");
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    scroll-behavior: smooth;
+}
+.parallax2{
+    background-image: url("https://images.pexels.com/photos/2745255/pexels-photo-2745255.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    scroll-behavior: smooth;
+}
+
+#box {
+    position: relative;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-family: 'Economica', sans-serif;
+}
+
+#border {
+    background-color: black;
+    color: whitesmoke;
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: 8px;
+}
+
+/* section 1 */
+span {
+    font-family: 'Economica', sans-serif;
+    font-size: 2.5em;
+    letter-spacing: 8px;
+    color: #383B3F;
+    text-transform: uppercase;
+}
+
+.title {
+    font-family: 'Dosis', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 16px;
+    l
+}
+
+.blurb {
+    font-family: 'Dosis', sans-serif;
+
+    font-size: 12px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    color: #9d9d9d;
+}
+
+.section {
+    padding-top: 3em;
+    text-align: center;
+    background-color: #fbfbfb;
+    width: 100wv;
+    padding-bottom: 3em;
+}
