@@ -1,19 +1,20 @@
 let bladeRunner = {
-    nameOfMovie: 'Bladerunner',
-    runtime: 90,
-    characters: [{
-        {
-            name: 'Deckard',
-            age: 33,
-            items: [{item1: "gun"} {item2: "badge"}]
-        },
-        {
-            name: 'Rachel',
-            age: 2,
-            items: [{item1: "fur coat"}{item2: "cigarette"}]
-        }
-    };
-    genre: 'scifi'
-};
-
-console.log(`${bladeRunner.characters}`);
+        nameOfMovie: "Bladerunner",
+        runTime: 117,
+        characters: [{
+                    name: "Deckard",
+                    age: 40,
+                    items: [{ itemOne: "gun"}, {itemTwo: "badge"}]
+                    },
+                    {
+                    name: "Rachel",
+                    age: 1,
+                    items: [{ itemOne: "fur coat"}, {itemTwo: "lipstick"}]   
+                    }
+                    ],                            
+                }
+console.log(bladeRunner.nameOfMovie)                
+console.log(bladeRunner.runTime)             
+console.log(bladeRunner.characters)   
+console.log(bladeRunner.characters[0].name)   
+console.log(bladeRunner.characters[0].items[1].itemTwo)   
