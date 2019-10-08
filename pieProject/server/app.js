@@ -1,9 +1,13 @@
 require('dotenv').config();
-
 const express = require('express');
 const app = express();
 
 const pies = require('./controllers/piecontroller');
+
+const sequelize = require('./db');
+
+sequelize.sync();
+app.use(express.json());
 
 app.use('/pies', pies);
 
