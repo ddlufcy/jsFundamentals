@@ -7,10 +7,11 @@ const testPage = require('./controllers/testcontroller');
 const user = require('./controllers/usercontroller');
 const sequelize = require('./db');
 
-
 sequelize.sync();
 
 app.use(express.json());
+
+app.use(require('./middleware/headers'));
 
 app.use('/test', testPage);
 
