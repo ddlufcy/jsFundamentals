@@ -1,17 +1,88 @@
 const express = require('express');
 const router = express.Router();
+const sequelize = require('../db');
+const TestModel = sequelize.import('../models/test');
 
-//Arrays and Objects
+// simple response
+router.post('/one', function (req, res) {
+    res.send("Got a post request.")
+});
 
-const contact = {Name: "Daniel", Age:30, Alive:true};
-const projects = ['Project Alpha', 'Project Beta', 'Blue project'];
-let myContacts = [{Name: "Daniel", Location: 1150},{Name: "Aaron", Location: "Home"},{Name: "Cindy", Location:"Home"}];
+// persist data
+router.post('/two', function (req, res) {
+    let testData = "Test data for endpoint two";
 
-router.get('/', (req, res) => res.send("This is a test page."));
+    TestModel
+        .create({
+            testdata: testData
+        }).then(dataFromDatabase => {
+            res.send("Test two went through!")
+        })
+});
+// req. body
+router.post('/four', function (req, res) {
+    let testData = req.body.testdata.item;
 
-router.get('/about', (req, res) => res.send("This an about route!"));
+    TestModel
+        .create({
+            testdata: testData
+        })
+        .then(
+            function message() {
+                res.send("Test 4 went through!");
+            }
+        );
+});
 
-router.get('/contact', (req, res) => res.send(contact));
+// route 5
 
-router.get('/myContacts', (req,res) => res.send(myContacts));
+router.post('/five', function (req, res) {
+    let testData = req.body.testdata.item;
+    TestModel
+        .create({
+            testdata: testData
+        })
+        .then(
+            function message(data) {
+                res.send(data);
+            }
+
+        );
+});
+
+// route 6
+router.post('/six', function (req, res) {
+    let testData = req.body.testdata.item;
+    TestModel
+        .create({
+            testdata: testData
+        })
+        .then(
+            function message(testdata) {
+                res.json({
+                    testdata: testdata
+                });
+            }
+        );
+});
+
+// handle errors
+router.post('/seven', function (req, res) {
+    let testData = req.body.testdata.item;
+    TestModel
+        .create({
+            testdata: testdata
+        })
+        .then(
+            function createSuccess(testdata) {
+                res.json({
+                    testdata: testdata
+                });
+            },
+            function createError(err) {
+                res.send(500, err.message);
+            }
+        );
+});
+
 module.exports = router;

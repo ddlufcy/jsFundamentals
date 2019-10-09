@@ -1,16 +1,23 @@
+// Env
+require('dotenv').config();
+// Modules
 const express = require('express'); //1
 const app = express(); //2
 const testPage = require('./controllers/testcontroller');
+const user = require('./controllers/usercontroller');
+const sequelize = require('./db');
 
-app.listen(3000, () => console.log("App is listening on PORT 3000."));
+
+sequelize.sync();
+
+app.use(express.json());
 
 app.use('/test', testPage);
 
-app.get('test/about');
+app.use('/api/user', user);
 
-app.get('test/contact');
+app.listen(3000, () => console.log("App is listening on PORT 3000."));
 
-app.get('test/myContacts');
 
 
 
