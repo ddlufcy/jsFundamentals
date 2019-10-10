@@ -69,9 +69,10 @@ router.post('/six', function (req, res) {
 // handle errors
 router.post('/seven', function (req, res) {
     let testData = req.body.testdata.item;
+    console.log(req.body)
     TestModel
         .create({
-            testdata: testdata
+            testdata: testData
         })
         .then(
             function createSuccess(testdata) {
@@ -84,7 +85,26 @@ router.post('/seven', function (req, res) {
             }
         );
 });
-router.get('/helloclient', function (req, res){
+router.get('/helloclient', function (req, res) {
     res.send('This is a message from the server to the client.')
 })
-module.exports = router;
+
+// last request get: one
+
+router.get('/one', function (req, res) {
+            TestModel
+                .findAll({
+                    attributes: ['id', 'testdata']
+                })
+                .then(
+                    function findAllSuccess(data) {
+                        console.log("Controller data:", data);
+                        res.json(data);
+                    },
+                    function findAllError(err) {
+                        res.send(500, err.message);
+                    }
+                );
+});
+
+        module.exports = router;
