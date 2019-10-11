@@ -1,13 +1,13 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('workoutlog', 'postgres', 'sunshine5', {
+const sequelize = new Sequelize('fullStack', 'postgres', 'sunshine5', {
     host: 'localhost',
     dialect: 'postgres'
 });
 
 sequelize.authenticate().then(
     function () {
-        console.log('Connected to workoutlog postgres database');
+        console.log('Connected to fullStack postgres database');
     },
     function (err) {
         console.log(err)

@@ -49,6 +49,7 @@ router.post('/create', function (req, res) {
 router.get('/:id', function(req, res) {
     let data = req.params.id;
     let userid = req.user.id;
+    console.log(userid)
 
     AuthTestModel
         .findOne({
