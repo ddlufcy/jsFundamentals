@@ -10,7 +10,9 @@ import FunctionalComponentDemo from '../concepts/FunctionalComponentDemo'
 import PracticeComponent from '../concepts/PracticeComponent'
 import JSXRules from '../concepts/JSXRules'
 import State from '../concepts/UseState'
-
+import Effects from '../concepts/effects'
+import PropsDemo from '../concepts/PropsDemo'
+import Hooks from '../concepts/Hooks'
 const Sidebar = () => (
     <div className="sidebar">
         <div className="sidebar-list-styling">
@@ -21,6 +23,9 @@ const Sidebar = () => (
                 <li><Link to="/practice">Practice</Link></li>
                 <li><Link to="/jsxrules">JSX Rules</Link></li>
                 <li><Link to="/state">useState</Link></li>
+                <li><Link to="effects">useEffect</Link></li>
+                <li><Link to="propsdemo">Props Demo</Link></li>
+                <li><Link to="hooks">Hooks</Link></li>
             </ul>
         </div>
             <div className="sidebar-route">
@@ -32,6 +37,9 @@ const Sidebar = () => (
                     <Route exact path="/practice"><PracticeComponent /></Route>
                     <Route exact path="/jsxrules"><JSXRules /></Route>
                     <Route exact path="/state"><State /></Route>
+                    <Route exact path="/effects"><Effects /></Route>
+                    <Route exact path="/propsdemo"><PropsDemo /></Route>
+                    <Route exact path="/hooks"><Hooks /></Route>
                 </Switch>
             </div>
     </div>

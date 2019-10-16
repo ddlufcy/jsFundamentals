@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 
 import Navbar from './components/Navbar/Navbar';
+import Auth from './components/Auth/Auth';
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
       
       {/* {sessionToken} */}
       <Navbar />
-      <p>This is a test of React!</p>
+      <Auth />
     </div>
   );
 }
