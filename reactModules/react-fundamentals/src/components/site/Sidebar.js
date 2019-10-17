@@ -13,6 +13,8 @@ import State from '../concepts/UseState'
 import Effects from '../concepts/effects'
 import PropsDemo from '../concepts/PropsDemo'
 import Hooks from '../concepts/Hooks'
+import TimePiecesApp from '../../components/apps/timer-apps/TimePieceApp'
+import NytApp from '../apps/nyt-app/nyt-app'
 const Sidebar = () => (
     <div className="sidebar">
         <div className="sidebar-list-styling">
@@ -26,6 +28,8 @@ const Sidebar = () => (
                 <li><Link to="effects">useEffect</Link></li>
                 <li><Link to="propsdemo">Props Demo</Link></li>
                 <li><Link to="hooks">Hooks</Link></li>
+                <li><Link to="timer">Timers</Link></li>
+                <li><Link to="nytapp">NYT App</Link></li>
             </ul>
         </div>
             <div className="sidebar-route">
@@ -40,6 +44,8 @@ const Sidebar = () => (
                     <Route exact path="/effects"><Effects /></Route>
                     <Route exact path="/propsdemo"><PropsDemo /></Route>
                     <Route exact path="/hooks"><Hooks /></Route>
+                    <Route exact path="/timer"><TimePiecesApp /></Route>
+                    <Route exact path="/nytapp"><NytApp /></Route>
                 </Switch>
             </div>
     </div>
