@@ -3,16 +3,21 @@ import './App.css';
 
 import Navbar from './components/Navbar/Navbar';
 import Auth from './components/Auth/Auth';
+import Pies from './components/pies/Pies'
 
 function App() {
 
-  const [sessionToken, setSessionToken] = useState(10);
+  const [sessionToken, setSessionToken] = useState(undefined);
+  
+  const viewConductor = () => {
+    return sessionToken !== undefined ? <Pies token={sessionToken} /> : <Auth setSession={setSessionToken} />
+  }
   return (
     <div className="App">
       
       {/* {sessionToken} */}
-      <Navbar />
-      <Auth />
+      <Navbar  setSession={setSessionToken} />
+      {viewConductor()}
     </div>
   );
 }

@@ -1,0 +1,11 @@
+@font-face{
+  font-family: funrecord;
+  src: url('./assets/FUNRECORD.otf');
+}
+.shopTitle{
+  font-family: funrecord;
+  font-size: 2.5em;
+}
+#navTitle{
+  font-family: funrecord;
+}

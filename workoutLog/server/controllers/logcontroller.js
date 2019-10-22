@@ -6,7 +6,7 @@ const validateSession = require('../middleware/validatesession');
 
 router.get('/', (req, res) => {
     Log.findAll()
-        .then(pie => res.status(200).json(log))
+        .then(log => res.status(200).json(log))
         .catch(err => res.status(500).json({
             error: err
         }))
@@ -17,10 +17,10 @@ router.post('/',validateSession, (req, res) => {
         description: req.body.description,
         definition: req.body.definition,
         result: req.body.result,
-        owner: req.body.owner,
+        owner: req.user.id
     }
     // console.log(req);
-    Log.create(pieFromRequest)
+    Log.create(logFromRequest)
         .then(log => res.status(200).json(log))
         .catch(log => res.json(req.errors));
 })
@@ -50,10 +50,10 @@ router.put('/:id', validateSession, (req, res) => {
     }))
 })
 // UPDATE BY USERNAME
-router.put('/:usrname', validateSession, (req, res) => {
+router.put('/:id', validateSession, (req, res) => {
     Log.update(req.body, {
         where: {
-            username: req.params.username
+            id: req.params.id
         }
     })
     .then(log => res.status(200).json(log))
@@ -62,10 +62,10 @@ router.put('/:usrname', validateSession, (req, res) => {
     }))
 })
 // DELETE BY USER
-router.delete('/:username', validateSession,(req, res) => {
+router.delete('/:id', validateSession,(req, res) => {
     Log.destroy({
         where: {
-            username: req.params.username
+            id: req.params.id
         }
     })
     .then(log => res.status(200).json(log))

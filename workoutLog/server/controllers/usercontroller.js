@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 router.post('/signUp', (req, res) => {
     User.create({
             username: req.body.username,
-            password: bcrypt.hashSync(req.body.password, 10)
+            passwordhash: bcrypt.hashSync(req.body.password, 10)
         })
         .then(
             createSuccess = (user) => {
@@ -37,7 +37,7 @@ router.post('/signIn', (req, res) => {
         })
         .then(user => {
             if (user) {
-                bcrypt.compare(req.body.password, user.password, (err, matches) => {
+                bcrypt.compare(req.body.password, user.passwordhash, (err, matches) => {
                     if (matches) {
                         let token = jwt.sign({
                             id: user.id

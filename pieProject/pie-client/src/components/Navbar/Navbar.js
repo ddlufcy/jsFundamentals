@@ -9,7 +9,7 @@ const Navbar = (props) => {
         <div>
             <nav>
                 <img id="piePic" src={piePic} alt="pie" />
-                <Logout />
+                <Logout setSession={props.setSession} />
             </nav>
         </div>
     )

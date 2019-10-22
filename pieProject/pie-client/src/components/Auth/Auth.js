@@ -28,19 +28,45 @@ const Auth = (props) => {
             <div>
                 <label htmlFor='firstName'>First Name:</label>
                 <br />
-                <input type="text" id='firstName' value={firstName} onchange={(e) => setFirstName (e.target.value)}/>
+                <input type='text' id='firstName' value={firstName} onChange={(e) => setFirstName (e.target.value)}/>
                 <br />
                 <label htmlFor='lastName'>LastName:</label>
                 <br />
                 <input type='text' id='lastName' value={lastName} onChange={(e) => setLastName (e.target.value)}/>
                 <br />
             </div>
-        ) :null;
+        ) 
+        :null;
+
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            const url = login ? 'http://localhost:3000/auth/signIn' : 'http://localhost:3000/auth/signup'
+            const bodyObj = login ? {
+                email: email,
+                password: password
+            } :  {
+                email: email,
+                password: password,
+                firstName: firstName,
+                lastName: lastName
+
+            }
+            fetch(url,{
+                method: 'POST',
+                body: JSON.stringify(bodyObj),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(res => res.json())
+            .then(json => props.setSession(json.sessionToken))
+            .then(json => console.log(json))
+        }
 
 
     return(
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <h1>{title()}</h1>
                 {signupFields()}
                 <label htmlFor='email'>Email</label>

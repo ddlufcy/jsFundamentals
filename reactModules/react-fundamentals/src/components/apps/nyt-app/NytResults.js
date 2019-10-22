@@ -6,9 +6,9 @@ const NytResults = (props) => {
         <div>
             {props.results.map(result => {
                 return(
-                    <div key={result._id}>
+                    <div key={result._id}> {/*GIVES DIV KEY BASED ON WHAT THE OBJECT KEY IS */}
                       <h2>{result.headline.main}</h2>
-                      {result.multimedia.length > 1 ? <img alt="article" src={`http://www.nytimes.com/${result.multimedia[1].url}}`} /> : ''}
+                      {result.multimedia.length > 1 ? <img alt="article" src={`http://www.nytimes.com/${result.multimedia[1].url}`} /> : ''}
                       <p>
                           {result.snippet}
                           <br />
