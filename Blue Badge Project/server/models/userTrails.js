@@ -1,15 +1,11 @@
 module.exports = (sequelize, Datatypes) => {
-    const UserTrails = sequelize.define('userTrails', {
-        owner: {
-            type: Datatypes.INTEGER,
-            allowNull: false
-        },
+    const UserTrails = sequelize.define('userTrails', {    
         name: {
             type: Datatypes.STRING,
             allowNull: false
         },
         distance: {
-            type: Datatypes.NUMERIC(4, 1),
+            type: Datatypes.NUMERIC,
             allowNull: false
         },
         location: {
@@ -23,6 +19,12 @@ module.exports = (sequelize, Datatypes) => {
         rating: {
             type: Datatypes.INTEGER,
             allowNull: false
-        }
+        },
+        owner: {
+            type: Datatypes.INTEGER,
+            allowNull: false
+        },
+
     })
+    return UserTrails;
 }

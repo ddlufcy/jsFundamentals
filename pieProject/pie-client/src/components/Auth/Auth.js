@@ -13,7 +13,7 @@ const Auth = (props) => {
     }
 
     const loginToggle = (event) => {
-        event.preventDefault();
+        event.preventDefault(); 
 
         setLogin(!login);
 
@@ -75,7 +75,7 @@ const Auth = (props) => {
                 <br />
                 <label htmlFor='password'>Password:</label>
                 <br />
-                <input type='password' id='password' value={password} onChange={(e) => setPassWord (e.target.value)}/>
+                <input type='password' id='password' value={password} onChange={(e) => setPassWord(e.target.value)}/>
                 <br />
                 <button onClick={loginToggle}>Login/Signup Toggle</button>
                 <br />

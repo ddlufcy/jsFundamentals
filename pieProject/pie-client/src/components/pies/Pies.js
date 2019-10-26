@@ -3,32 +3,6 @@ import './Pies.css'
 
 import Pie from './pie/Pie';
 
-// const testDataPies = [
-//     {
-//     nameOfPie: "Pumpkin",
-//     baseOfPie: "Pumpkin puree",
-//     crust: "Pastry",
-//     timeToBake: 50,
-//     servings: 8,
-//     rating: 4.5
-//     },
-//     {
-//      nameOfPie: "Apple",
-//     baseOfPie: "Jam",
-//     crust: "Graham Cracker",
-//     timeToBake: 30,
-//     servings: 8,
-//     rating: 4.5
-//     },
-//     {
-//     nameOfPie: "Chocolate",
-//     baseOfPie: "Pudding",
-//     crust: "Pastry",
-//     timeToBake: 20,
-//     servings: 8,
-//     rating: 5.0
-//     }
-// ]
 
 const Pies = (props) => {
     const [pies, setPies] = useState([]);
