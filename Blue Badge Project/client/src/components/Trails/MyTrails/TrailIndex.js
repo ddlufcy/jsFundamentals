@@ -1,28 +1,28 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Row, Col} from 'reactstrap';
-import TrailCreate from './WorkoutCreate';
-
+import TrailCreate from './TrailCreate';
+import TrailTable from './TrailTable';
+import TrailEdit from './TrailEdit';
 
 const TrailIndex = (props) => {
-    const [name, setName] = useState('');
-    const [distance, setDistance] = useState('');
-    const [location, setLocation] = useState('');
-    const [difficulty, setDifficulty] = useState('');
+    const [trails, setTrails] = useState([]);
+    const [updateActive, setUpdateActive] = useState(false);
+    const [trailToUpdate, setTrailToUpDate] = useState({});
 
     const fetchTrails = () => {
-        fetch("http://localhost:3000/log/", {
+        fetch("http://localhost:3001/userTrails/", {
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',
                 'Authorization': props.token
             })
         }) .then( (res) => res.json())
-           .then((logData) => setWorkouts(logData))
+           .then((logData) => setTrails(logData))
            .catch(err => console.log(err))
     }
-    const editUpdateWorkout = (workout) => {
-        setWorkoutToUpDate(workout);
-        console.log(workout);
+    const editTrail = (trail) => {
+        setTrailToUpDate(trail);
+        console.log(trail);
     }
     const updateOn = () => {
         setUpdateActive(true); 
@@ -31,7 +31,7 @@ const TrailIndex = (props) => {
         setUpdateActive(false);
     }
     useEffect(() => {
-        fetchWorkouts();
+        fetchTrails();
     }, [])
 
     return(
@@ -39,17 +39,17 @@ const TrailIndex = (props) => {
         <Container>
             <Row>
                 <Col md="3">
-                    <WorkoutCreate fetchWorkouts={fetchWorkouts} token={props.token} />
+                    <TrailCreate fetchTrails={fetchTrails} token={props.token} />
                 </Col>
                 <Col md="9">
-                <WorkoutTable workouts={workouts} editUpdateWorkout={editUpdateWorkout}
-                 updateOn={updateOn} fetchWorkouts={fetchWorkouts} token={props.token} />
+                <TrailTable trails={trails} editTrail={editTrail}
+                 updateOn={updateOn} fetchTrails={fetchTrails} token={props.token} />
                 </Col>
-                    {updateActive ? <WorkoutEdit workoutToUpdate={workoutToUpdate}
-                     updateOff={updateOff} token={props.token} fetchWorkouts={fetchWorkouts}/> : <></>}
+                    {updateActive ? <TrailEdit trailToUpdate={trailToUpdate}
+                     updateOff={updateOff} token={props.token} fetchTrails={fetchTrails}/> : <></>}
             </Row>
         </Container>
     )
 }
 
-export default WorkoutIndex;
+export default TrailIndex;

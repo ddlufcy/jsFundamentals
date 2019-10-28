@@ -15,7 +15,7 @@ import Expert from '../../components/Trails/Expert';
 import MyFavorites from '../../components/Trails/MyFavorites';
 
 
-const Sidebar = () => {
+const Sidebar = (props) => {
     return(
     <div className="sidebar">
         <div className="sidebar-list-styling">
@@ -28,7 +28,7 @@ const Sidebar = () => {
                 <li><Link to="/advanced">Advanced Trails</Link></li>
                 <li><Link to="/advancedExpert">Advanced/Expert Trails</Link></li>
                 <li><Link to="/expert">Expert Trails</Link></li>
-                <li><Link to="/myFavorites">My Favorites</Link></li>
+                <li><Link to="/myFavorites">My Favorites</Link></li> 
             </ul>
         </div>
         <div className="sidebar-route">
@@ -41,7 +41,7 @@ const Sidebar = () => {
                 <Route exact path="/advanced"><Advanced /></Route>
                 <Route exact path="/advancedExpert"><AdvancedExpert /></Route>
                 <Route exact path="/expert"><Expert /></Route>
-                <Route exact path="/myFavorites"><MyFavorites /></Route>
+                <Route exact path="/myFavorites"><MyFavorites token={props.token} /></Route>
             </Switch>
         </div>
     </div>

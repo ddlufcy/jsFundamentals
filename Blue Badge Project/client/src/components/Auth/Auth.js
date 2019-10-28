@@ -17,12 +17,12 @@ const Auth = (props) =>{
    const signupFields = () => !login ?
    (
        <div>
-        <p>Signup to share and explore some of the best cosplay across the world!</p>
+        <p>Signup to find and share you favorite trails!</p>
        </div>
    ) : null;
    const handleSubmit = (e) => {
        e.preventDefault();
-       const url = login ? 'http://localhost:3000/auth/signIn' : 'http://localhost:3000/auth/signUp'
+       const url = login ? 'http://localhost:3001/auth/signIn' : 'http://localhost:3001/auth/signUp'
        const bodyObj = login ? {
            username: username,
            password: password

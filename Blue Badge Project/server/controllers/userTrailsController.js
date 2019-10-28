@@ -7,7 +7,11 @@ const validateSession = require('../middleware/validatesession');
 
 //GET ALL
 router.get('/', (req, res) => {
-    UserTrails.findAll()
+    UserTrails.findAll({
+        where: {
+            owner: req.user.id
+        }}
+    )
         .then(userTrails => res.status(200).json(userTrails))
         .catch(err => res.status(500).json({
             error: err
@@ -40,7 +44,7 @@ router.get('/findBy/:name', (req, res) => {
     }))
 })
 //GET TRAILS BY USER
-router.get('/byOwner', (req, res) => {
+router.get('/byOwner/:owner', (req, res) => {
     UserTrails.findAll({
         where: {
            owner: req.user.id

@@ -9,9 +9,9 @@ const MainSite = (props) => {
     return(
     <div className="main">
         <Router>
-        <Sidebar />
+        <Sidebar token={props.token}/>
         </Router>
-        <Footer />
+        <Footer token={props.token} logout={props.logout} />
     </div>
     )
 }

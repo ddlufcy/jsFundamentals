@@ -9,14 +9,14 @@ const TrailCreate = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch("http://localhost:3000/trails/addTrails", {
+        fetch("http://localhost:3001/userTrails/addTrail", {
             method: "POST",
             body: JSON.stringify({name: name, distance: distance, location: location, difficulty: difficulty}),
             headers: new Headers({
                 'Content-Type': 'application/json',
                 'Authorization': props.token
             })
-        }) .then((res) => res.json())
+        }) .then((res) => console.log(res))
         .then((logData) => {
             console.log(logData);
             setName('');
@@ -25,26 +25,27 @@ const TrailCreate = (props) => {
             setDifficulty('');
             props.fetchTrails();
         })
+        .catch(err => console.log(err))
     }
     return(
         <>
-            <h3>Log a Workout</h3>
+            <h3>Make a trail</h3>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="description" />
-                    <Input name="name" value={name} onChange={(e) => setName(e.target.value)} />
+                    <Input name="name" value={name} onChange={(e) => setName(e.target.value)}  placeholder="name"/>
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="distance" />
-                    <Input type="text" name="distance" value={distance} onChange={(e) => setDistance(e.target.value)} />               
+                    <Input type="text" name="distance" value={distance} onChange={(e) => setDistance(e.target.value)} placeholder="distance"/>               
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="location" />
-                    <Input type="text" name="location" value={location} onChange={(e) => setLocation(e.target.value)}/>
+                    <Input type="text" name="location" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="location"/>
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="difficulty" />
-                    <Input type="text" name="difficulty" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}/>
+                    <Input type="text" name="difficulty" value={difficulty} onChange={(e) => setDifficulty(e.target.value)} placeholder="difficulty"/>
                 </FormGroup>
                 <Button type="submit">Click to Submit</Button>
             </Form>
