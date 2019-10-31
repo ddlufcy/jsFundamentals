@@ -8,11 +8,12 @@
     padding: 1px;
     background-color: white;
     font: Belleza;
+    color: #ECE4B7;
   }
   
   /* Footer */
   footer {
-    background-color: #53565A;
+    background-color: #716d61;
     color: #fff;
     margin-top: 10px;
   }
@@ -25,14 +26,17 @@
   .main {
     margin-top: 1em;
     background-color: #7c7a75;
-    color: #fff;
-    height: 98%;
-    min-height: 98%;
+    color: rgb(253, 251, 234);
+    /* height: 98%; */
+    min-height: 90%;
+    margin-bottom: 2.7em;
+    border-radius: 10px;
   }
   .mainDiv {
     margin: auto;
     width: 90%;
     padding: 5px;
+    margin-bottom: 1em;
   }
   .sidebar {
     display: flex;
@@ -44,11 +48,11 @@
   }
   /* sidebar */
   .sidebar-list-styling{
-    padding-left: 10px;
+    padding-left: 8px;
     padding-top: 15px;
     width: 22%;
     background-color: #01b552;
-    color: #fff;
+    color: rgb(253, 251, 234);
     font-size: 18px;
     line-height: 1.7em;
   }

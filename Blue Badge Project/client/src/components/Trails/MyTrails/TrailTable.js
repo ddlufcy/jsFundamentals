@@ -1,5 +1,6 @@
 import React from 'react';
 import {Table, Button} from 'reactstrap';
+import '../TrailStyles/TrailTable.css'
 
 const TrailTable = (props) => {
     const deleteTrail = (trail) => {
@@ -22,7 +23,7 @@ const TrailTable = (props) => {
                     <td>{trail.location}</td>
                     <td>{trail.difficulty}</td>
                     <td>
-                        <Button color="warning" onClick={() => {props.editUpdateTrail(trail); props.updateOn()}}>Update</Button>
+                        <Button color="info" onClick={() =>{props.editUpdateTrail(trail); props.updateOn()}}>Update</Button>
                         <Button color="danger" onClick={() => {deleteTrail(trail)}}>Delete</Button>
                     </td>
                 </tr>

@@ -5,7 +5,7 @@ module.exports = (sequelize, Datatypes) => {
             allowNull: false
         },
         distance: {
-            type: Datatypes.NUMERIC,
+            type: Datatypes.STRING,
             allowNull: false
         },
         location: {

@@ -20,7 +20,7 @@ const TrailIndex = (props) => {
            .then((logData) => setTrails(logData))
            .catch(err => console.log(err))
     }
-    const editTrail = (trail) => {
+    const editUpdateTrail = (trail) => {
         setTrailToUpDate(trail);
         console.log(trail);
     }
@@ -42,8 +42,8 @@ const TrailIndex = (props) => {
                     <TrailCreate fetchTrails={fetchTrails} token={props.token} />
                 </Col>
                 <Col md="9">
-                <TrailTable trails={trails} editTrail={editTrail}
-                 updateOn={updateOn} fetchTrails={fetchTrails} token={props.token} />
+                    <TrailTable trails={trails} editUpdateTrail={editUpdateTrail}
+                     updateOn={updateOn} fetchTrails={fetchTrails} token={props.token} />
                 </Col>
                     {updateActive ? <TrailEdit trailToUpdate={trailToUpdate}
                      updateOff={updateOff} token={props.token} fetchTrails={fetchTrails}/> : <></>}

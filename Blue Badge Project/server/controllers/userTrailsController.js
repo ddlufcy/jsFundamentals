@@ -19,12 +19,12 @@ router.get('/', (req, res) => {
 })
 //POST
 router.post('/addTrail', (req,res) => {
+    console.log(req.body)
     const userTrailsFromRequest = { //add new trails
         name: req.body.name,
         distance: req.body.distance,
         location: req.body.location,
         difficulty: req.body.difficulty,
-        rating: req.body.rating,
         owner: req.user.id 
     }
     UserTrails.create(userTrailsFromRequest)

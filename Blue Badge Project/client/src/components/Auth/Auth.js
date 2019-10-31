@@ -1,7 +1,14 @@
 
 import React, {useState} from 'react';
 import {Label, Button, Form} from 'reactstrap';
+import './Auth.css'
 const Auth = (props) =>{
+
+    const formStyle={
+        textAlign: "center",
+
+    }
+
    const [username, setUsername]= useState('');
    const [password, setPassword]= useState ('');
    const [login, setLogin] = useState(true);
@@ -25,7 +32,7 @@ const Auth = (props) =>{
        const url = login ? 'http://localhost:3001/auth/signIn' : 'http://localhost:3001/auth/signUp'
        const bodyObj = login ? {
            username: username,
-           password: password
+           password: password,
        } : {
            username: username,
            password : password,
@@ -42,22 +49,24 @@ const Auth = (props) =>{
        .catch(err => console.log(err))
    }
    return(
-     <Form onSubmit= {handleSubmit}>
+     <Form className="splashForm" style={formStyle} onSubmit= {handleSubmit}>
          <br/>
          <h1>{title()}</h1>
          {signupFields()}
          <br/>
          <Label htmlFor='username'>Username:</Label>
          <br/>
-         <input type='text' id = 'username' placeholder='Enter Username' value={username} onChange={(e) => setUsername(e.target.value)}/>
+         <input style={{marginBottom: ".1em", borderRadius: "4px", height: '2.1em', border: "none"}} type='text' id = 'username' placeholder='Enter Username' value={username} onChange={(e) => setUsername(e.target.value)}/>
          <br/>
          <Label htmlFor='password'>Password:</Label>
          <br/>
-         <input type='password' id='password' placeholder='Enter Password' value={password} onChange={(e)=> setPassword(e.target.value)}/>
+         <input style={{marginBottom: ".1em", borderRadius: "4px", height: '2.1em', border: "none"}}type='password' id='password' placeholder='at least 6 letters' value={password}  pattern="(?=.*[a-z]).{6,12}" onChange={(e)=> setPassword(e.target.value)} required/>
          <br/>
-         <Button  onClick={loginToggle}>Login/Signup</Button>
+         {/* <Label htmlFor='password'> Confirm Password:</Label> */}
+         <br />
+         <Button style={{marginBottom: ".4em"}} color="info" onClick={loginToggle}>Login/Signup</Button>
          <br/>
-         <Button type='submit'>Submit</Button>
+         <Button style={{marginBottom: ".8em"}} color="success" type='submit'>Submit</Button>
      </Form>
    )
 }

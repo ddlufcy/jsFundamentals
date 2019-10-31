@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 
 //GET TRAIL BY DIFFICULTY
 router.get('/:difficulty', (req, res) => {
-    Trails.findOne({
+    Trails.findAll({
         where: {
             difficulty: req.params.difficulty
         }
@@ -29,7 +29,7 @@ router.get('/:difficulty', (req, res) => {
     .catch(err => res.status(500).json({
         error: err
     }))
-    console.log(req);
+
 })
 
 module.exports = router;

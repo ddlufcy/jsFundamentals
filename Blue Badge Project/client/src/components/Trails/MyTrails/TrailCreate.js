@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import '../TrailStyles/TrailCreate.css'
 
 const TrailCreate = (props) => {
     const [name, setName] = useState('');
@@ -45,9 +46,9 @@ const TrailCreate = (props) => {
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="difficulty" />
-                    <Input type="text" name="difficulty" value={difficulty} onChange={(e) => setDifficulty(e.target.value)} placeholder="difficulty"/>
+                    <Input type="text" name="difficulty" value={difficulty} onChange={(e) => setDifficulty(e.target.value)} placeholder="difficulty (B, BI, I, IA)" />
                 </FormGroup>
-                <Button type="submit">Click to Submit</Button>
+                <Button type="submit" color="success" >Click to Submit</Button>
             </Form>
         </>
     )

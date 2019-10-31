@@ -8,7 +8,7 @@ const TrailEdit = (props) => {
     const [editLocation, setEditLocation] = useState(props.trailToUpdate.location);
     const [editDifficulty, setEditDifficulty] = useState(props.trailToUpdate.difficulty);
     // Put
-    const trailUpdate= (event, trail) => {
+    const trailUpdate = (event, trail) => {
         event.preventDefault();
         fetch(`http://localhost:3001/userTrails/${props.trailToUpdate.id}`, {
             method: 'PUT',
@@ -45,6 +45,7 @@ const TrailEdit = (props) => {
                    <Input name="difficulty" value={editDifficulty} onChange={(e) => setEditDifficulty(e.target.value)} />
                    </FormGroup>
                    <Button type="submit">Update Trail</Button>
+                   <Button type="button" data-dismiss="modal" >Cancel</Button>
                </Form>
            </ModalBody>
        </Modal>
